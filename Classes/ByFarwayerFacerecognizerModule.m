@@ -25,11 +25,6 @@
     [super shutdown:sender];
 }
 
-#pragma mark Cleanup 
-
-- (void)dealloc {
-    [super dealloc];
-}
 
 MAKE_SYSTEM_STR(ACCURACY_LOW, CIDetectorAccuracyLow);
 MAKE_SYSTEM_STR(ACCURACY_HIGH, CIDetectorAccuracyHigh);

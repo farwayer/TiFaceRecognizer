@@ -7,8 +7,7 @@
 @property(nonatomic, retain) CIDetector *detector;
 @end
 
-@implementation ByFarwayerFacerecognizerDetectorProxy {
-}
+@implementation ByFarwayerFacerecognizerDetectorProxy
 
 - (void)createDetector {
     NSString *accuracy = [TiUtils stringValue:@"accuracy" properties:self.allProperties def:CIDetectorAccuracyHigh];
@@ -70,33 +69,28 @@
 
     NSMutableArray *faces = [NSMutableArray array];
     for (CIFaceFeature *feature in features) {
-        NSMutableDictionary *face = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *face = [NSMutableDictionary dictionary];
 
         TiRect *faceRect = [[TiRect alloc] init];
         [faceRect setRect:feature.bounds];
         face[@"position"] = faceRect;
-        [faceRect release];
 
         if (feature.hasLeftEyePosition) {
             TiPoint *leftEye = [[TiPoint alloc] initWithPoint:feature.leftEyePosition];
             face[@"leftEye"] = leftEye;
-            [leftEye release];
         }
 
         if (feature.hasRightEyePosition) {
             TiPoint *rightEye = [[TiPoint alloc] initWithPoint:feature.rightEyePosition];
             face[@"rightEye"] = rightEye;
-            [rightEye release];
         }
 
         if (feature.hasMouthPosition) {
             TiPoint *mouth = [[TiPoint alloc] initWithPoint:feature.mouthPosition];
             face[@"mouth"] = mouth;
-            [mouth release];
         }
 
         [faces addObject:face];
-        [face release];
     }
 
     return features.count > 0? @{
@@ -105,11 +99,6 @@
     } : @{
             @"status": NUMBOOL(NO)
     };
-}
-
-- (void)dealloc {
-    self.detector = nil;
-    [super dealloc];
 }
 
 @end
