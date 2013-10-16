@@ -12,7 +12,7 @@
 - (void)createDetector {
     NSString *accuracy = [TiUtils stringValue:@"accuracy" properties:self.allProperties def:CIDetectorAccuracyHigh];
     BOOL tracking = [TiUtils boolValue:@"tracking" properties:self.allProperties def:NO];
-    float minFeatureSize = [TiUtils floatValue:@"minFeatureSize" properties:self.allProperties def:1.0];
+    float minFeatureSize = [TiUtils floatValue:@"minFeatureSize" properties:self.allProperties def:0.0];
 
     self.detector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:@{
             CIDetectorAccuracy : accuracy,
