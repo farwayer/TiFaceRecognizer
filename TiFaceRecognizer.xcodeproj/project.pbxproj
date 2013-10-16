@@ -133,9 +133,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* timodules */ = {
+		D2AAC07D0554694100DB518D /* TiFaceRecognizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "timodules" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TiFaceRecognizer" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -145,7 +145,7 @@
 			);
 			dependencies = (
 			);
-			name = timodules;
+			name = TiFaceRecognizer;
 			productName = timodules;
 			productReference = D2AAC07E0554694100DB518D /* libByFarwayerFacerecognizer.a */;
 			productType = "com.apple.product-type.library.static";
@@ -157,7 +157,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "timodules" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TiFaceRecognizer" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -172,7 +172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* timodules */,
+				D2AAC07D0554694100DB518D /* TiFaceRecognizer */,
 				24416B8111C4CA220047AFDD /* Build & Test */,
 			);
 		};
@@ -210,7 +210,7 @@
 /* Begin PBXTargetDependency section */
 		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2AAC07D0554694100DB518D /* timodules */;
+			target = D2AAC07D0554694100DB518D /* TiFaceRecognizer */;
 			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -384,7 +384,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "timodules" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TiFaceRecognizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
@@ -393,7 +393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "timodules" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TiFaceRecognizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,

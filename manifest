@@ -11,7 +11,7 @@ copyright: Copyright (c) 2013 by Your Company
 
 
 # these should not be edited
-name: timodules
+name: TiFaceRecognizer
 moduleid: by.farwayer.facerecognizer
 guid: 7f26aa9a-c034-40ec-92fc-d176383a57e3
 platform: iphone
