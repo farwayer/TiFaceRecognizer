@@ -97,7 +97,7 @@
             @"success" : NUMBOOL(YES),
             @"faces": faces
     } : @{
-            @"status": NUMBOOL(NO)
+            @"success": NUMBOOL(NO)
     };
 }
 
