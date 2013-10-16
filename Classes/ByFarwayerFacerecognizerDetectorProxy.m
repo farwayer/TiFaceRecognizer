@@ -43,10 +43,13 @@
 }
 
 - (id)featuresInImage:(id)args {
-    NSDictionary *options = nil;
+    NSDictionary *options;
     ENSURE_ARG_COUNT(args, 1);
-    ENSURE_ARG_AT_INDEX(options, args, 1, NSDictionary);
+    ENSURE_ARG_OR_NIL_AT_INDEX(options, args, 1, NSDictionary);
+
     UIImage *image = [TiUtils toImage:args[0] proxy:self];
+    if (!image) return nil;
+
     CIImage *ciImage = image.CIImage? image.CIImage : [CIImage imageWithCGImage:image.CGImage];
     if (!ciImage) return nil;
 
@@ -71,23 +74,31 @@
     for (CIFaceFeature *feature in features) {
         NSMutableDictionary *face = [NSMutableDictionary dictionary];
 
-        TiRect *faceRect = [[TiRect alloc] init];
-        [faceRect setRect:feature.bounds];
-        face[@"position"] = faceRect;
+        TiRect *bounds = [[TiRect alloc] init];
+        [bounds setRect:feature.bounds];
+        face[@"bounds"] = bounds;
+
+        face[@"hasSmile"] = @(feature.hasSmile);
+        face[@"leftEyeClosed"] = @(feature.leftEyeClosed);
+        face[@"rightEyeClosed"] = @(feature.rightEyeClosed);
 
         if (feature.hasLeftEyePosition) {
-            TiPoint *leftEye = [[TiPoint alloc] initWithPoint:feature.leftEyePosition];
-            face[@"leftEye"] = leftEye;
+            face[@"leftEye"] = [[TiPoint alloc] initWithPoint:feature.leftEyePosition];
         }
-
         if (feature.hasRightEyePosition) {
-            TiPoint *rightEye = [[TiPoint alloc] initWithPoint:feature.rightEyePosition];
-            face[@"rightEye"] = rightEye;
+            face[@"rightEye"] = [[TiPoint alloc] initWithPoint:feature.rightEyePosition];
         }
-
         if (feature.hasMouthPosition) {
-            TiPoint *mouth = [[TiPoint alloc] initWithPoint:feature.mouthPosition];
-            face[@"mouth"] = mouth;
+            face[@"mouth"] = [[TiPoint alloc] initWithPoint:feature.mouthPosition];
+        }
+        if (feature.hasFaceAngle) {
+            face[@"faceAngle"] = @(feature.faceAngle);
+        }
+        if (feature.hasTrackingID) {
+            face[@"trackingID"] = @(feature.trackingID);
+        }
+        if (feature.hasTrackingFrameCount) {
+            face[@"trackingFrameCount"] = @(feature.trackingFrameCount);
         }
 
         [faces addObject:face];
