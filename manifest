@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+description: My module
+author: farwayer
+license: Specify your license
+copyright: Copyright (c) 2013 by Your Company
+
+
+# these should not be edited
+name: timodules
+moduleid: by.farwayer.facerecognizer
+guid: 7f26aa9a-c034-40ec-92fc-d176383a57e3
+platform: iphone
+minsdk: 3.1.3.GA
