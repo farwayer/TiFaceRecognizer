@@ -104,11 +104,9 @@
         [faces addObject:face];
     }
 
-    return features.count > 0? @{
-            @"success" : NUMBOOL(YES),
+    return @{
+            @"success" : NUMBOOL(features.count > 0),
             @"faces": faces
-    } : @{
-            @"success": NUMBOOL(NO)
     };
 }
 
