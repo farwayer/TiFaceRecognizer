@@ -83,13 +83,13 @@
         face[@"rightEyeClosed"] = @(feature.rightEyeClosed);
 
         if (feature.hasLeftEyePosition) {
-            face[@"leftEye"] = [[TiPoint alloc] initWithPoint:feature.leftEyePosition];
+            face[@"leftEyePosition"] = [[TiPoint alloc] initWithPoint:feature.leftEyePosition];
         }
         if (feature.hasRightEyePosition) {
-            face[@"rightEye"] = [[TiPoint alloc] initWithPoint:feature.rightEyePosition];
+            face[@"rightEyePosition"] = [[TiPoint alloc] initWithPoint:feature.rightEyePosition];
         }
         if (feature.hasMouthPosition) {
-            face[@"mouth"] = [[TiPoint alloc] initWithPoint:feature.mouthPosition];
+            face[@"mouthPosition"] = [[TiPoint alloc] initWithPoint:feature.mouthPosition];
         }
         if (feature.hasFaceAngle) {
             face[@"faceAngle"] = @(feature.faceAngle);
