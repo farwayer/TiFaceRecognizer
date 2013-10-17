@@ -96,17 +96,18 @@
 }
 
 - (id)featuresInImage:(id)args {
-    NSDictionary *options;
-    KrollCallback *callback;
-
     ENSURE_ARG_COUNT(args, 1);
-    ENSURE_ARG_OR_NIL_AT_INDEX(options, args, 1, NSDictionary);
-    ENSURE_ARG_OR_NIL_AT_INDEX(callback, args, 2, KrollCallback);
 
-    UIImage *image = [TiUtils toImage:args[0] proxy:self];
-    if (!image) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
+    id image = args[0];
+    NSDictionary *options = VALUE_AT_INDEX_OR_NIL(args, 1);
+    ENSURE_TYPE_OR_NIL(options, NSDictionary);
+    KrollCallback *callback = VALUE_AT_INDEX_OR_NIL(args, 2);
+    ENSURE_TYPE_OR_NIL(callback, KrollCallback);
 
-    CIImage *ciImage = image.CIImage? image.CIImage : [CIImage imageWithCGImage:image.CGImage];
+    UIImage *uiImage = [TiUtils toImage:image proxy:self];
+    if (!uiImage) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
+
+    CIImage *ciImage = uiImage.CIImage? uiImage.CIImage : [CIImage imageWithCGImage:uiImage.CGImage];
     if (!ciImage) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
 
     NSDictionary *recognizeOptions = nil;
