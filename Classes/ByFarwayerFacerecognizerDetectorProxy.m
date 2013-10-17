@@ -48,10 +48,10 @@
     ENSURE_ARG_OR_NIL_AT_INDEX(options, args, 1, NSDictionary);
 
     UIImage *image = [TiUtils toImage:args[0] proxy:self];
-    if (!image) return nil;
+    if (!image) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
 
     CIImage *ciImage = image.CIImage? image.CIImage : [CIImage imageWithCGImage:image.CGImage];
-    if (!ciImage) return nil;
+    if (!ciImage) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
 
     if (!self.detector) [self createDetector];
 
