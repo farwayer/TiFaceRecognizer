@@ -42,33 +42,12 @@
     if (self.detector) [self createDetector];
 }
 
-- (id)featuresInImage:(id)args {
-    NSDictionary *options;
-    ENSURE_ARG_COUNT(args, 1);
-    ENSURE_ARG_OR_NIL_AT_INDEX(options, args, 1, NSDictionary);
-
-    UIImage *image = [TiUtils toImage:args[0] proxy:self];
-    if (!image) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
-
-    CIImage *ciImage = image.CIImage? image.CIImage : [CIImage imageWithCGImage:image.CGImage];
-    if (!ciImage) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
-
+- (id)findFeatures:(CIImage *)image detectorOptions:(NSDictionary *)options {
     if (!self.detector) [self createDetector];
 
-    NSArray *features;
-    if (options) {
-        int orientation = [TiUtils intValue:@"imageOrientation" properties:options def:1];
-        BOOL eyeBlink = [TiUtils boolValue:@"recognizeEyeBlink" properties:options def:NO];
-        BOOL smile = [TiUtils boolValue:@"recognizeSmile" properties:options def:NO];
-
-        features = [self.detector featuresInImage:ciImage options:@{
-                CIDetectorImageOrientation : @(orientation),
-                CIDetectorEyeBlink : @(eyeBlink),
-                CIDetectorSmile : @(smile)
-        }];
-    } else {
-        features = [self.detector featuresInImage:ciImage];
-    }
+    NSArray *features = options?
+            [self.detector featuresInImage:image options:options] :
+            [self.detector featuresInImage:image];
 
     NSMutableArray *faces = [NSMutableArray array];
     for (CIFaceFeature *feature in features) {
@@ -108,6 +87,45 @@
             @"success" : NUMBOOL(features.count > 0),
             @"faces": faces
     };
+}
+
+- (id)featuresInImage:(id)args {
+    NSDictionary *options;
+    KrollCallback *callback;
+
+    ENSURE_ARG_COUNT(args, 1);
+    ENSURE_ARG_OR_NIL_AT_INDEX(options, args, 1, NSDictionary);
+    ENSURE_ARG_OR_NIL_AT_INDEX(callback, args, 2, KrollCallback);
+
+    UIImage *image = [TiUtils toImage:args[0] proxy:self];
+    if (!image) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
+
+    CIImage *ciImage = image.CIImage? image.CIImage : [CIImage imageWithCGImage:image.CGImage];
+    if (!ciImage) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
+
+    NSDictionary *detectorOptions = nil;
+    if (options) {
+        int orientation = [TiUtils intValue:@"imageOrientation" properties:options def:1];
+        BOOL eyeBlink = [TiUtils boolValue:@"recognizeEyeBlink" properties:options def:NO];
+        BOOL smile = [TiUtils boolValue:@"recognizeSmile" properties:options def:NO];
+
+        detectorOptions = @{
+                CIDetectorImageOrientation : @(orientation),
+                CIDetectorEyeBlink : @(eyeBlink),
+                CIDetectorSmile : @(smile)
+        };
+    }
+
+    if (callback) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            id result = [self findFeatures:ciImage detectorOptions:detectorOptions];
+            [self _fireEventToListener:@"searchResult" withObject:result listener:callback thisObject:self];
+        });
+
+        return nil;
+    } else {
+        return [self findFeatures:ciImage detectorOptions:detectorOptions];
+    }
 }
 
 @end
