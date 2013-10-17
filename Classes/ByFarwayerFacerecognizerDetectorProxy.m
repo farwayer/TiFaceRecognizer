@@ -12,9 +12,9 @@
 - (void)createDetector {
     NSString *accuracy = [TiUtils stringValue:@"accuracy" properties:self.allProperties def:CIDetectorAccuracyHigh];
     BOOL tracking = [TiUtils boolValue:@"tracking" properties:self.allProperties def:NO];
-    float minFeatureSize = [TiUtils floatValue:@"minFeatureSize" properties:self.allProperties def:0.0100];
+    float minFeatureSize = [TiUtils floatValue:@"minFeatureSize" properties:self.allProperties def:0.0100f];
 
-    if (minFeatureSize < 0.0100 || minFeatureSize > 0.5000) { // REAL range; 0.0-1.0 from Apple docs is invalid
+    if (minFeatureSize < 0.0100f || minFeatureSize > 0.5000f) { // REAL range; 0.0-1.0 from Apple docs is invalid
         [self throwException:TiExceptionRangeError
                    subreason:@"minFeatureSize must be from 0.0100 to 0.5000"
                     location:CODELOCATION];
