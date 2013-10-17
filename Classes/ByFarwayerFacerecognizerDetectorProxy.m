@@ -12,7 +12,13 @@
 - (void)createDetector {
     NSString *accuracy = [TiUtils stringValue:@"accuracy" properties:self.allProperties def:CIDetectorAccuracyHigh];
     BOOL tracking = [TiUtils boolValue:@"tracking" properties:self.allProperties def:NO];
-    float minFeatureSize = [TiUtils floatValue:@"minFeatureSize" properties:self.allProperties def:0.0];
+    float minFeatureSize = [TiUtils floatValue:@"minFeatureSize" properties:self.allProperties def:0.0100];
+
+    if (minFeatureSize < 0.0100 || minFeatureSize > 0.5000) { // REAL range; 0.0-1.0 from Apple docs is invalid
+        [self throwException:TiExceptionRangeError
+                   subreason:@"minFeatureSize must be from 0.0100 to 0.5000"
+                    location:CODELOCATION];
+    }
 
     self.detector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:@{
             CIDetectorAccuracy : accuracy,
@@ -42,7 +48,7 @@
     if (self.detector) [self createDetector];
 }
 
-- (id)findFeatures:(CIImage *)image detectorOptions:(NSDictionary *)options {
+- (id)findFeatures:(CIImage *)image recognizeOptions:(NSDictionary *)options {
     if (!self.detector) [self createDetector];
 
     NSArray *features = options?
@@ -103,13 +109,13 @@
     CIImage *ciImage = image.CIImage? image.CIImage : [CIImage imageWithCGImage:image.CGImage];
     if (!ciImage) [self throwException:TiExceptionInvalidType subreason:@"invalid image" location:CODELOCATION];
 
-    NSDictionary *detectorOptions = nil;
+    NSDictionary *recognizeOptions = nil;
     if (options) {
         int orientation = [TiUtils intValue:@"imageOrientation" properties:options def:1];
         BOOL eyeBlink = [TiUtils boolValue:@"recognizeEyeBlink" properties:options def:NO];
         BOOL smile = [TiUtils boolValue:@"recognizeSmile" properties:options def:NO];
 
-        detectorOptions = @{
+        recognizeOptions = @{
                 CIDetectorImageOrientation : @(orientation),
                 CIDetectorEyeBlink : @(eyeBlink),
                 CIDetectorSmile : @(smile)
@@ -118,13 +124,13 @@
 
     if (callback) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            id result = [self findFeatures:ciImage detectorOptions:detectorOptions];
+            id result = [self findFeatures:ciImage recognizeOptions:recognizeOptions];
             [self _fireEventToListener:@"searchResult" withObject:result listener:callback thisObject:self];
         });
 
         return nil;
     } else {
-        return [self findFeatures:ciImage detectorOptions:detectorOptions];
+        return [self findFeatures:ciImage recognizeOptions:recognizeOptions];
     }
 }
 
