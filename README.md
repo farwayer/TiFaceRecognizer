@@ -1,6 +1,8 @@
 iOS Face Recognization Module for [Titanium](https://github.com/appcelerator/titanium_mobile)
 ------------
 
+![Preview](https://raw.github.com/farwayer/TiFaceRecognizer/master/example/test.jpg)
+
 Сapabilities
 ------------
 
@@ -18,10 +20,11 @@ Register in application
 -----------------------
 
 Register module in your application by editing `tiapp.xml`:
-
+```xml
     <modules>
 	    <module version="1.0">by.farwayer.facerecognizer</module>
     </modules>
+```
 
 Usage
 -----
