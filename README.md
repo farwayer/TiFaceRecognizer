@@ -1,5 +1,5 @@
 iOS Face Recognization Module for [Titanium Mobile](https://github.com/appcelerator/titanium_mobile)
-===========================================
+------------
 
 Сapabilities
 ------------
