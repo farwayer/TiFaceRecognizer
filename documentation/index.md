@@ -1,4 +1,4 @@
-# timodules Module
+# Face Recognizer Module
 
 ## Description
 
