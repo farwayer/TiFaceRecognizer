@@ -1,11 +1,11 @@
-iOS Face Recognization Module for [Titanium Mobile](https://github.com/appcelerator/titanium_mobile)
+iOS Face Recognization Module for [Titanium](https://github.com/appcelerator/titanium_mobile)
 ------------
 
 Сapabilities
 ------------
 
 All supported by [CIDetector](https://developer.apple.com/library/ios/documentation/CoreImage/Reference/CIDetector_Ref/Reference/Reference.html).
-
+Async recognize.
 
 Install
 -------
