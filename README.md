@@ -1,7 +1,7 @@
 iOS Face Recognization Module for [Titanium](https://github.com/appcelerator/titanium_mobile)
 ------------
 
-![Preview](https://raw.github.com/farwayer/TiFaceRecognizer/master/example/test.jpg)
+![Preview](https://raw.github.com/farwayer/TiFaceRecognizer/master/documentation/preview.png)
 
 Сapabilities
 ------------
