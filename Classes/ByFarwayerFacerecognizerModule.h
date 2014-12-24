@@ -1,7 +1,6 @@
 #import <TiModule.h>
 
-@interface ByFarwayerFacerecognizerModule : TiModule {
-}
+@interface ByFarwayerFacerecognizerModule : TiModule {}
 
 @property (nonatomic, readonly) NSString *ACCURACY_LOW;
 @property (nonatomic, readonly) NSString *ACCURACY_HIGH;

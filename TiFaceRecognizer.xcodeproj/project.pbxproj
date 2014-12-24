@@ -24,11 +24,8 @@
 /* Begin PBXBuildFile section */
 		24DD6CF91134B3F500162E58 /* ByFarwayerFacerecognizerModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* ByFarwayerFacerecognizerModule.h */; };
 		24DD6CFA1134B3F500162E58 /* ByFarwayerFacerecognizerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ByFarwayerFacerecognizerModule.m */; };
-		24DE9E1111C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.h */; };
-		24DE9E1211C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.m */; };
 		3837AB2314A7D7C278E7B3AB /* ByFarwayerFacerecognizerDetectorProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3837ADA770D1DF34927E11D9 /* ByFarwayerFacerecognizerDetectorProxy.m */; };
 		3837AC853937B2646977E82C /* ByFarwayerFacerecognizerDetectorProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3837A9359F20105E1E6DDFF3 /* ByFarwayerFacerecognizerDetectorProxy.h */; };
-		AA747D9F0F9514B9006C5449 /* ByFarwayerFacerecognizer_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ByFarwayerFacerecognizer_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,11 +43,8 @@
 		24DD6CF71134B3F500162E58 /* ByFarwayerFacerecognizerModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByFarwayerFacerecognizerModule.h; path = Classes/ByFarwayerFacerecognizerModule.h; sourceTree = "<group>"; };
 		24DD6CF81134B3F500162E58 /* ByFarwayerFacerecognizerModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByFarwayerFacerecognizerModule.m; path = Classes/ByFarwayerFacerecognizerModule.m; sourceTree = "<group>"; };
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
-		24DE9E0F11C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByFarwayerFacerecognizerModuleAssets.h; path = Classes/ByFarwayerFacerecognizerModuleAssets.h; sourceTree = "<group>"; };
-		24DE9E1011C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByFarwayerFacerecognizerModuleAssets.m; path = Classes/ByFarwayerFacerecognizerModuleAssets.m; sourceTree = "<group>"; };
 		3837A9359F20105E1E6DDFF3 /* ByFarwayerFacerecognizerDetectorProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByFarwayerFacerecognizerDetectorProxy.h; path = Classes/ByFarwayerFacerecognizerDetectorProxy.h; sourceTree = "<group>"; };
 		3837ADA770D1DF34927E11D9 /* ByFarwayerFacerecognizerDetectorProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByFarwayerFacerecognizerDetectorProxy.m; path = Classes/ByFarwayerFacerecognizerDetectorProxy.m; sourceTree = "<group>"; };
-		AA747D9E0F9514B9006C5449 /* ByFarwayerFacerecognizer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByFarwayerFacerecognizer_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libByFarwayerFacerecognizer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libByFarwayerFacerecognizer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,8 +91,6 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				24DE9E0F11C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.h */,
-				24DE9E1011C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* ByFarwayerFacerecognizerModule.h */,
 				24DD6CF81134B3F500162E58 /* ByFarwayerFacerecognizerModule.m */,
 				3837ADA770D1DF34927E11D9 /* ByFarwayerFacerecognizerDetectorProxy.m */,
@@ -110,7 +102,6 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AA747D9E0F9514B9006C5449 /* ByFarwayerFacerecognizer_Prefix.pch */,
 				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
 			);
 			name = "Other Sources";
@@ -123,9 +114,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA747D9F0F9514B9006C5449 /* ByFarwayerFacerecognizer_Prefix.pch in Headers */,
 				24DD6CF91134B3F500162E58 /* ByFarwayerFacerecognizerModule.h in Headers */,
-				24DE9E1111C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.h in Headers */,
 				3837AC853937B2646977E82C /* ByFarwayerFacerecognizerDetectorProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +189,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24DD6CFA1134B3F500162E58 /* ByFarwayerFacerecognizerModule.m in Sources */,
-				24DE9E1211C5FE74003F90F6 /* ByFarwayerFacerecognizerModuleAssets.m in Sources */,
 				3837AB2314A7D7C278E7B3AB /* ByFarwayerFacerecognizerDetectorProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +215,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ByFarwayerFacerecognizer_Prefix.pch;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -265,7 +253,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ByFarwayerFacerecognizer_Prefix.pch;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -299,7 +287,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ByFarwayerFacerecognizer_Prefix.pch;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -335,7 +323,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ByFarwayerFacerecognizer_Prefix.pch;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";

@@ -12,20 +12,6 @@
     return @"by.farwayer.facerecognizer";
 }
 
-#pragma mark Lifecycle
-
-- (void)startup {
-    [super startup];
-
-    NSLog(@"[INFO] %@ loaded", [self moduleId]);
-}
-
-- (void)shutdown:(id)sender {
-
-    [super shutdown:sender];
-}
-
-
 MAKE_SYSTEM_STR(ACCURACY_LOW, CIDetectorAccuracyLow);
 MAKE_SYSTEM_STR(ACCURACY_HIGH, CIDetectorAccuracyHigh);
 

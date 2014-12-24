@@ -90,7 +90,7 @@
     }
 
     return @{
-            @"success" : NUMBOOL(features.count > 0),
+            @"success" : @(features.count > 0),
             @"faces": faces
     };
 }
